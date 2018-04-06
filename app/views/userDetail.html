@@ -1,3 +1,7 @@
+<div ng-show="$ctrl.isLoading" class="col-xs-12 text-center">
+    <img src="images/loading.svg" alt="Loading...">
+</div>
+
 <div ng-if="!$ctrl.isLoading">
     <img ng-src="{{$ctrl.user.avatar_url}}">
 

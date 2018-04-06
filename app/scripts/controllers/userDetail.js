@@ -8,7 +8,6 @@ angular.module('githubUserFinderApp')
         },
         controller: ['$scope', 'GithubService', function($scope, GithubService) {
             var ctrl = this;
-            ctrl.isLoading = true;
             ctrl.Repos = null;
             ctrl.Gists = null;
 
@@ -21,6 +20,8 @@ angular.module('githubUserFinderApp')
             }
 
             ctrl.updatePage = () => {
+                ctrl.isLoading = true;
+
                 Promise.all(
                     [
                         GithubService.GetUserRepos(ctrl.user.login),
