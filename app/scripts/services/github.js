@@ -7,4 +7,12 @@ angular.module('githubUserFinderApp')
         this.GetGithubUser = function(username) {
             return $http.get(URL_BASE + '/users/' + username);
         };
+
+        this.GetUserRepos = function(username) {
+            return $http.get(URL_BASE + '/users/' + username + '/repos');
+        };
+
+        this.GetUserGists = function(username) {
+            return $http.get(URL_BASE + '/users/' + username + '/gists');
+        };
     }]);

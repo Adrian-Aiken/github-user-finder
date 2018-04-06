@@ -5,19 +5,19 @@ angular.module('githubUserFinderApp')
     this.Username = '';
     this.isValidUser = false;
     this.hasSearched = false;
-    this.User = {};
+    this.User = null;
 
     this.getUserInfo = function() {
-      this.hasSearched = true;
       GithubService.GetGithubUser(this.Username).then(
-        (response) => { // success
-          console.log(response.data);
-          this.User = response.data;
+        (successResponse) => { 
+          this.User = successResponse.data;
           this.isValidUser = true;
+          this.hasSearched = true;
         },
-        (reason) => { // failure
-          console.log(reason);
+        (failureReason) => {
+          console.log(failureReason);
           this.isValidUser = false;
+          this.hasSearched = true;
         }
       );
     };

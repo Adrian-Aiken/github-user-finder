@@ -19,11 +19,11 @@
   </div>
 
   <div ng-show="mainCtrl.hasSearched">
-    <div ng-show="mainCtrl.User && mainCtrl.isValidUser">
-      {{mainCtrl.User}}
+    <div ng-if="mainCtrl.User">
+      <user-detail user="mainCtrl.User"></user-detail>
     </div>
     
-    <div ng-hide="!mainCtrl.hasSearched || mainCtrl.isValidUser">
+    <div ng-if="!mainCtrl.isValidUser">
       {{mainCtrl.Username}} is an invalid user
     </div>
   </div>

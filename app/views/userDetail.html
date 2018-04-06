@@ -1,0 +1,17 @@
+<div ng-if="!$ctrl.isLoading">
+    <img ng-src="{{$ctrl.user.avatar_url}}">
+
+    <h2>Repos</h2>
+    <ul>
+        <li ng-repeat="repo in $ctrl.Repos">
+            <a ng-href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+        </li>
+    </ul>
+    
+    <h2>Gists</h2>
+    <ul>
+        <li ng-repeat="gist in $ctrl.Gists">
+            <a ng-href="{{gist.html_url}}" target="_blank">{{gist.description}}</a>
+        </li>
+    </ul>
+</div>
