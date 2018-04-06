@@ -1,10 +1,30 @@
-<div class="jumbotron">
-  <h1>WIP</h1>
-  <p class="lead">
-    This is a work in progress
-  </p>
+<div class="page-header">
+  <h1>Github Search</h1>
 </div>
 
 <div class="row">
-  Content coming soon
+  <div class="col-md-12">
+    <div class="input-group">
+      <input type="text" ng-model="mainCtrl.Username" class="form-control" placeholder="Username...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="mainCtrl.getUserInfo()"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div ng-hide="mainCtrl.hasSearched">
+    Please enter a username above
+  </div>
+
+  <div ng-show="mainCtrl.hasSearched">
+    <div ng-show="mainCtrl.User && mainCtrl.isValidUser">
+      {{mainCtrl.User}}
+    </div>
+    
+    <div ng-hide="!mainCtrl.hasSearched || mainCtrl.isValidUser">
+      {{mainCtrl.Username}} is an invalid user
+    </div>
+  </div>
 </div>

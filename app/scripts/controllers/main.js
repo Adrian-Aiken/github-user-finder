@@ -1,17 +1,25 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name githubUserFinderApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the githubUserFinderApp
- */
 angular.module('githubUserFinderApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['GithubService', function (GithubService) {
+    this.Username = '';
+    this.isValidUser = false;
+    this.hasSearched = false;
+    this.User = {};
+
+    this.getUserInfo = function() {
+      this.hasSearched = true;
+      GithubService.GetGithubUser(this.Username).then(
+        (response) => { // success
+          console.log(response.data);
+          this.User = response.data;
+          this.isValidUser = true;
+        },
+        (reason) => { // failure
+          console.log(reason);
+          this.isValidUser = false;
+        }
+      );
+    };
+
+  }]);
