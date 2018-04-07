@@ -1,7 +1,5 @@
 # github-user-finder
-
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.16.0.
+Simple web interface using angular to find github users based on their username, and display basic profile information. 
 
 ## Build & development
 
