@@ -2,22 +2,25 @@
 
 angular.module('githubUserFinderApp')
   .controller('MainCtrl', ['GithubService', function (GithubService) {
-    this.Username = '';
-    this.isValidUser = true;
-    this.hasSearched = false;
-    this.User = null;
+    var ctrl = this;
 
-    this.getUserInfo = function() {
-      GithubService.GetGithubUser(this.Username).then(
+    ctrl.username = '';
+    ctrl.isValidUser = true;
+    ctrl.hasSearched = false;
+    ctrl.user = null;
+    ctrl.searchedUsername = '';
+
+    ctrl.getUserInfo = function() {
+      GithubService.GetGithubUser(ctrl.username).then(
         (successResponse) => { 
-          this.User = successResponse.data;
-          this.isValidUser = true;
-          this.hasSearched = true;
+          ctrl.user = successResponse.data;
+          ctrl.isValidUser = true;
+          ctrl.hasSearched = true;
         },
-        (failureReason) => {
-          console.log(failureReason);
-          this.isValidUser = false;
-          this.hasSearched = true;
+        (failureReason) => {          
+          ctrl.searchedUsername = ctrl.username;
+          ctrl.isValidUser = false;
+          ctrl.hasSearched = true;
         }
       );
     };
