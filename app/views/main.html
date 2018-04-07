@@ -1,32 +1,36 @@
+<div id="background-image"></div>
+
 <div class="page-header text-center">
   <h1>Github Search</h1>
 </div>
 
-<div class="row search-box">
-  <div class="col-md-12">
-    <form ng-submit="mainCtrl.getUserInfo()">
-      <div class="input-group" ng-class="{'has-error': !mainCtrl.isValidUser}">
-        <input type="text" ng-model="mainCtrl.Username" class="form-control" placeholder="Username...">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-        </span>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="well row content">
-  <div ng-hide="mainCtrl.hasSearched">
-    Please enter a username above
-  </div>
-
-  <div ng-show="mainCtrl.hasSearched">
-    <div ng-if="mainCtrl.isValidUser">
-      <user-detail user="mainCtrl.User"></user-detail>
+<div id="main-body">
+  <div class="row search-box">
+    <div class="col-md-12">
+      <form ng-submit="mainCtrl.getUserInfo()">
+        <div class="input-group" ng-class="{'has-error': !mainCtrl.isValidUser}">
+          <input type="text" ng-model="mainCtrl.Username" class="form-control" placeholder="Username...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </form>
     </div>
-    
-    <div ng-if="!mainCtrl.isValidUser">
-      {{mainCtrl.Username}} is an invalid user
+  </div>
+
+  <div class="well row content">
+    <div ng-hide="mainCtrl.hasSearched">
+      Please enter a username above
+    </div>
+
+    <div ng-if="mainCtrl.hasSearched">
+      <div ng-if="mainCtrl.isValidUser">
+        <user-detail user="mainCtrl.User"></user-detail>
+      </div>
+      
+      <div ng-if="!mainCtrl.isValidUser">
+        {{mainCtrl.Username}} is an invalid user
+      </div>
     </div>
   </div>
 </div>

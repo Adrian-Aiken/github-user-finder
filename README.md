@@ -1,5 +1,7 @@
-# github-user-finder
-Simple web interface using angular to find github users based on their username, and display basic profile information. 
+# Github User Finder
+Simple web interface using angular to find github users based on their username, and display basic profile information.
+
+All personal code is with the `app` folder.
 
 ## Build & development
 
