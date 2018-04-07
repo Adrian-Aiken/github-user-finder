@@ -3,7 +3,7 @@
 angular.module('githubUserFinderApp')
   .controller('MainCtrl', ['GithubService', function (GithubService) {
     this.Username = '';
-    this.isValidUser = false;
+    this.isValidUser = true;
     this.hasSearched = false;
     this.User = null;
 

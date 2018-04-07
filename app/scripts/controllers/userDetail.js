@@ -29,9 +29,11 @@ angular.module('githubUserFinderApp')
                     ]
                 )
                 .then((responses) => {
-                    ctrl.Repos = responses[0].data;
-                    ctrl.Gists = responses[1].data;
-                    ctrl.isLoading = false;
+                    $scope.$apply(() => {
+                        ctrl.Repos = responses[0].data;
+                        ctrl.Gists = responses[1].data;
+                        ctrl.isLoading = false;
+                    });
                 });
             }
         }]
